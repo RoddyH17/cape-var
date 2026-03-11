@@ -1,7 +1,5 @@
 # VAR-Enhanced Shiller CAPE Ratio
 
-**Roddy Huang** | Monet Global Consulting Group — Macro Quantitative Investment Researcher (2024)
-
 > Enhanced the Shiller-CAPE ratio for long-run U.S. equity return forecasting via a Vector Autoregression (VAR) incorporating earning yields and a capital index. Achieved **~40% RMSE reduction** vs. Shiller's baseline OLS for 10-year nominal annualized returns.
 
 ---
