@@ -254,6 +254,23 @@ def fit_var_cape(
     )
 
 
+def compute_excess_cape_yield(
+    cape: pd.Series,
+    real_bond_yield: pd.Series,
+) -> pd.Series:
+    """
+    Excess CAPE Yield (ECY) — Davis et al. (2018) Fair-Value CAPE.
+
+    ECY_t = 1/CAPE_t - y_real_10yr_t
+
+    Conditions CAPE's mean-reversion on the interest rate regime.
+    Davis et al. show ECY reduces 10yr forecast RMSE by ~50% vs raw CAPE.
+    This is the state-of-art single-factor predictor before VAR extension.
+    """
+    ey = 1.0 / cape.replace(0, np.nan)
+    return (ey - real_bond_yield).rename("ecy")
+
+
 def compare_models(
     df: pd.DataFrame,
     target: str = "fwd_10yr_nominal",
